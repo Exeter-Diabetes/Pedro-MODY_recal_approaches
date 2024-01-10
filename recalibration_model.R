@@ -42,11 +42,11 @@ model_code <- nimbleCode({
   }
   
   ## regression priors
-  gamma0 ~ dnorm(0, 0.01)
-  gamma1 ~ dnorm(0, 0.01)
-  beta0 ~ dnorm(0, 0.01)
+  gamma0 ~ dnorm(0, sd = 10)
+  gamma1 ~ dnorm(1, sd = 10)
+  beta0 ~ dnorm(0, sd = 10)
   for(j in 1:np) {
-    beta[j] ~ dnorm(0, 0.01)
+    beta[j] ~ dnorm(0, sd = 10)
   }
   
 })

@@ -65,22 +65,22 @@ model_code <- nimbleCode({
   ## testing priors
   pMp_Cn_or_Ap ~ dbeta(pMp_Cn_or_Ap_alpha, pMp_Cn_or_Ap_beta)       # probability of MODY given C- or A+ is < 0.01
   
-  beta0 ~ dnorm(0, 0.01)
+  beta0 ~ dnorm(0, sd = 10)
   for(j in 1:np) {
-    beta[j] ~ dnorm(0, 0.01)
+    beta[j] ~ dnorm(0, sd = 10)
   }
   
-  beta_t0 ~ dnorm(0, 0.01)
+  beta_t0 ~ dnorm(0, sd = 10)
   for(j in 1:np_T) {
-    beta_t[j] ~ dnorm(0, 0.01)
+    beta_t[j] ~ dnorm(0, sd = 10)
   }
   for(j in 1:np_spline) {
-    beta_spline[j] ~ dnorm(0, 0.01)
+    beta_spline[j] ~ dnorm(0, sd = 10)
   }
   
   ## regression priors
   gamma0 ~ dnorm(0, sd = 10)
-  gamma1 ~ dnorm(0, sd = 10)
+  gamma1 ~ dnorm(1, sd = 10)
   
 })
 
